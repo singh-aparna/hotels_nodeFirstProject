@@ -4,6 +4,13 @@ const db = require("./db");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
+//Middleware Function
+const logRequest=(req,res,next)=>{
+  console.log(`[${new Date().toLocaleString()}] Request made to: ${req.originalUrl}`);
+  next();//Move on to the next phase
+}
+app.use(logRequest);
+
 app.get("/", function (req, res) {
   res.send("Welcome to my hotel. How can I help you?");
 });

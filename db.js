@@ -1,9 +1,11 @@
 const mongoose=require("mongoose");
 // define the mongodb connection url
 const mongoURL = "mongodb://localhost:27017/hotels";
+//const mongoURL="mongodb+srv://singh123aparnasa:<QWERTY12345>@cluster0.4epnihq.mongodb.net/"
 mongoose.connect(mongoURL,
     {
-        
+        useNewUrlParser: true
+
     }
 )
 const db=mongoose.connection;
